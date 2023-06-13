@@ -3,6 +3,11 @@ import {Radio} from "antd";
 import styled from "styled-components";
 
 const StyledRadio = styled(Radio)`
+  .ant-radio-checked .ant-radio-inner {
+    background-color: #444656;
+    border-color: #444656;
+    
+  }
   
 `
 

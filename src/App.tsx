@@ -42,7 +42,7 @@ function App() {
                 </div>
             </div>
             <div className="checkbox">
-                <CheckboxGipno></CheckboxGipno>
+                <CheckboxGipno/>
             </div>
             <div className="input-search">
                 <div id="input-search-default">
