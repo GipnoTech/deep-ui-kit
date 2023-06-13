@@ -19,13 +19,13 @@ const StyledButton = styled(Button)<{ name?: string }>`
   //border: 2px solid #444656;
   border-radius: 15px;
   background-color: #444656;
-  color: white !important;
+  color: white;
   
   ${(props) =>
           props.name === 'primary' &&
           css`
             background-color: #444656;
-            color: white;
+            color: white !important;
 
             &:hover {
               background-color: #4B51EA;

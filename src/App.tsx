@@ -6,6 +6,7 @@ import {ButtonIconGipno} from "./button-icon";
 import {RadioGipno} from "./radio";
 import {InputSearchGipno} from "./input-search";
 import {ColorGipno} from "./color";
+import {CheckboxGipno} from "./checkbox";
 
 function App() {
     return (
@@ -38,6 +39,9 @@ function App() {
                 <div id="square">
                     <RadioGipno />
                 </div>
+            </div>
+            <div className="checkbox">
+                <CheckboxGipno></CheckboxGipno>
             </div>
             <div className="input-search">
                 <div id="input-search-default">
