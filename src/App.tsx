@@ -19,8 +19,8 @@ function App() {
                     <ButtonGipno name={"default"} >Primary Button</ButtonGipno>
                 </div>
                 <div id="disabled-button">
-                    <ButtonGipno disabled style={{border: "none"}}>Button / Disabled</ButtonGipno>
-                    <ButtonGipno disabled style={{background: "none"}}>Button / Disabled</ButtonGipno>
+                    <ButtonGipno name={"disabled-primary"} disabled >Button / Disabled</ButtonGipno>
+                    <ButtonGipno name={"disabled-default"} disabled >Button / Disabled</ButtonGipno>
                 </div>
                 <div id="icon-button-user">
                     <ButtonIconGipno name={'profile'}/>

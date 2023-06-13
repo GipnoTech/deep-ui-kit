@@ -45,6 +45,21 @@ const StyledButton = styled(Button)<{ name?: string }>`
             }
               
           `}
+  ${(props) =>
+          props.name === 'disabled-default' &&
+          css`
+            background-color: white !important;
+            color: #444656;
+            border: 2px solid #444656;
+              
+          `}
+  ${(props) =>
+          props.name === 'disabled-primary' &&
+          css`
+            color: #444656;
+            border: none !important;
+              
+          `}
 `
 
 type ButtonTypes = Parameters<typeof Button>[0];
