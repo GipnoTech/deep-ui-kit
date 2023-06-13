@@ -7,6 +7,7 @@ import {RadioGipno} from "./radio";
 import {InputSearchGipno} from "./input-search";
 import {ColorGipno} from "./color";
 import {CheckboxGipno} from "./checkbox";
+import {SelectGipno} from "./select";
 
 function App() {
     return (
@@ -52,6 +53,7 @@ function App() {
                 <InputGipno placeholder={'Введите что-нибудь'}/>
                 <InputGipno placeholder={'Введите что-нибудь'} status={"error"}/>
                 <InputGipno placeholder={'Введите что-нибудь'} status={"warning"}/>
+                <SelectGipno/>
             </div>
 
             <div >Цветовая палитра</div>
