@@ -9,10 +9,15 @@ import {ColorGipno} from "./color";
 import {CheckboxGipno} from "./checkbox";
 import {SelectGipno} from "./select";
 
+const customOptions = [
+    { value: 'Выберите из списка 1', label: 'Выберите из списка 1' },
+    { value: 'Выберите из списка 2', label: 'Выберите из списка 2' },
+    { value: 'Выберите из списка 3', label: 'Выберите из списка 3' },
+];
 function App() {
     return (
         <div className="App">
-            <div>Кнопки</div>
+            <div className="button-text">Кнопки</div>
             <div className="button">
                 <div id="primary-button">
                     <ButtonGipno name={"primary"} >Primary Button</ButtonGipno>
@@ -35,14 +40,13 @@ function App() {
                     <ButtonIconGipno name={'plus'}/>
                 </div>
             </div>
-            <div>Гиперссылки</div>
+            <div className="radio-text">Гиперссылки</div>
             <div className="radio">
-                <div id="square">
-                    <RadioGipno />
-                </div>
-            </div>
-            <div className="checkbox">
+                <RadioGipno />
                 <CheckboxGipno/>
+            </div>
+            <div className="input-text">
+                Инпуты и селекты
             </div>
             <div className="input-search">
                 <div id="input-search-default">
@@ -53,10 +57,13 @@ function App() {
                 <InputGipno placeholder={'Введите что-нибудь'}/>
                 <InputGipno placeholder={'Введите что-нибудь'} status={"error"}/>
                 <InputGipno placeholder={'Введите что-нибудь'} status={"warning"}/>
-                <SelectGipno/>
+
+            </div>
+            <div className="select">
+                <SelectGipno options={customOptions} />
             </div>
 
-            <div >Цветовая палитра</div>
+            <div className="color-text">Цветовая палитра</div>
             <div className="palitra">
                 <ColorGipno name={"#444656"} defaultValue={"#444656"}/>
                 <ColorGipno name={"#F5F6F8"} defaultValue={"#F5F6F8"}/>

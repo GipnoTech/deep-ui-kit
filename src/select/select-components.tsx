@@ -22,17 +22,18 @@ const StyledSelect = styled(Select)<{ name?: string }>`
 
 type SelectTypes = Parameters<typeof Select>[0];
 
-export function SelectGipno(props: SelectTypes) {
-    return (
-        <StyledSelect{...props} options={[
-    {value: 'Выбор из списка 1', label: 'Выбор из списка 1'},
-    {value: 'Выбор из списка 2', label: 'Выбор из списка 2'},
-    {value: 'Выбор из списка 3', label: 'Выбор из списка 3'},
-    {value: 'Выбор из списка 4', label: 'Выбор из списка 4'},
-    ]}
-     placeholder="Выберите пункт"
-        >
-        </StyledSelect>
+interface SelectGipnoProps extends SelectTypes {
+    options: { value: string; label: string }[];
+}
 
-    )
+export function SelectGipno({ options, ...props }: SelectGipnoProps) {
+    return (
+        <StyledSelect {...props} placeholder="Выберите пункт">
+            {options.map((option) => (
+                <Option key={option.value} value={option.value}>
+                    {option.label}
+                </Option>
+            ))}
+        </StyledSelect>
+    );
 }
