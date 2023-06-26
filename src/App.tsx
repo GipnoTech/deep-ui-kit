@@ -8,6 +8,7 @@ import {InputSearchGipno} from "./input-search";
 import {ColorGipno} from "./color";
 import {CheckboxGipno} from "./checkbox";
 import {SelectGipno} from "./select";
+import {DateGipno} from "./date/date-components";
 
 const customOptions = [
     { value: 'Выберите из списка 1', label: 'Выберите из списка 1' },
@@ -62,7 +63,9 @@ function App() {
             <div className="select">
                 <SelectGipno options={customOptions} />
             </div>
-
+            <div className="date">
+                <DateGipno/>
+            </div>
             <div className="color-text">Цветовая палитра</div>
             <div className="palitra">
                 <ColorGipno name={"#444656"} defaultValue={"#444656"}/>
