@@ -26,7 +26,7 @@ const StyledButtonIcon = styled(Button)<{ name?: string }>`
   border-radius: 15px;
   
   color: white;
-  
+  border: none;
   
   ${(props) =>
           props.name === 'copy' &&

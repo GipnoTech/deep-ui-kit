@@ -20,6 +20,8 @@ const StyledButton = styled(Button)<{ name?: string }>`
   border-radius: 15px;
   background-color: #444656;
   color: white;
+  border: none;
+ 
   
   ${(props) =>
           props.name === 'primary' &&
@@ -30,6 +32,7 @@ const StyledButton = styled(Button)<{ name?: string }>`
             &:hover {
               background-color: #4B51EA;
               color: white;
+              border: none;
             }
 
           `}
@@ -41,7 +44,8 @@ const StyledButton = styled(Button)<{ name?: string }>`
             border: 2px solid #444656;
             &:hover {
               background-color: white;
-              color: white;
+              border-color: #4B51EA !important;
+              color: #4B51EA !important;
             }
               
           `}
