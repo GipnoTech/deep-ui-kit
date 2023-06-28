@@ -4,48 +4,68 @@ import {SearchOutlined} from "@ant-design/icons"
 import styled, {css} from "styled-components";
 import icon from "./Search-Icon.svg"
 
-const StyledInputSearch = styled(Input)<{ name?: string }>`
+const StyledSpaceSearch = styled(Space)<{ name?: string}>`
    display: flex;
    flex-direction: row;
    align-items: center;
-   padding: 12px 0px 12px 14px;
+   padding: 12px 0px 8px 40px;
    gap: 12px;
 
-   width: 440px;
-   height: 47px;
+   width: 400px;
+   height: 30px;
 
-  ${(props) =>
-          props.name === 'search' &&
-          css`
-          background-color: #444656;
-            
-            
-         &:hover {
-           background-color: #4B51EA;
-           background-position: center;
-           background-repeat: no-repeat;
-          }
-         
-    `}
+  background: #F5F6F8;
+  border-radius: 15px;
+
+  text-overflow: ellipsis;
+
+  background-image: url(${icon});
+  background-repeat: no-repeat !important;
+  background-position: 10px, 10px !important;
+  
+  .ant-select-selector{
+    background-color: #F5F6F8 !important;
+    border: none !important;
+    padding-right: 25px !important;
+  }
+  .ant-select-arrow{
+    color: #444656;
+  }
+  .ant-input{
+    padding-right: 45px;
+  }
+   
+  .ant-input:focus{
+    box-shadow: none !important;
+  }
+  
+  .ant-select-selection-search-input{
+    display: none;
+  }
 `
 
-const { Option } = Select;
-const selectAfter = (
-    <Select defaultValue="Выберите пункт" style={{backgroundColor: "#F5F6F8"}}>
-        <Option value=".com">.com</Option>
-        <Option value=".jp">.jp</Option>
-        <Option value=".cn">.cn</Option>
-        <Option value=".org">.org</Option>
-    </Select>
-);
-const selectBefore = (
-    <img src={icon} style={{backgroundColor: "#F5F6F8"}}/>
-);
-type InputSearchTypes = Parameters<typeof Input>[0]
+type InputSearchTypes = Parameters<typeof Space>[0]
 
-export function InputSearchGipno(props: InputSearchTypes) {
+interface InputSearchGipnoProps extends InputSearchTypes {
+    options: { value: string; label: string }[];
+}
+
+export function InputSearchGipno({ options, ...props }: InputSearchGipnoProps) {
     return (
 
-        <StyledInputSearch {...props} placeholder="Введите запрос" addonBefore={selectBefore} addonAfter={selectAfter} />
+        <StyledSpaceSearch {...props}  placeholder="Введите запрос">
+            <Input
+                style={{backgroundColor: '#F5F6F8', border: 'none'}}
+                placeholder="Введите запрос"
+            />
+            <svg height="50" width="5">
+                <line x1="0" y1="0" x2="0" y2="50" style={{stroke:"#BCBFC6",}} />
+            </svg>
+            <Select
+                placeholder="Выберите пункт"
+                style={{minWidth: '160px'}}
+                options={options}
+            />
+        </StyledSpaceSearch>
     )
 }

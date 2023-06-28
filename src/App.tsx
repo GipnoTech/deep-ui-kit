@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {InputGipno} from "./input";
 import {ButtonGipno} from "./button";
@@ -8,14 +8,22 @@ import {InputSearchGipno} from "./input-search";
 import {ColorGipno} from "./color";
 import {CheckboxGipno} from "./checkbox";
 import {SelectGipno} from "./select";
-import {DateGipno} from "./date/date-components";
+import {DateGipno} from "./date";
 
-const customOptions = [
-    { value: 'Выберите из списка 1', label: 'Выберите из списка 1' },
-    { value: 'Выберите из списка 2', label: 'Выберите из списка 2' },
-    { value: 'Выберите из списка 3', label: 'Выберите из списка 3' },
-];
+
 function App() {
+
+    const customOptions = [
+        { value: 'Выберите из списка 1', label: 'Выберите из списка 1' },
+        { value: 'Выберите из списка 2', label: 'Выберите из списка 2' },
+        { value: 'Выберите из списка 3', label: 'Выберите из списка 3' },
+    ];
+    const options = [
+        { value: 'Пункт 1', label: 'Пункт 1' },
+        { value: 'Пункт 2', label: 'Пункт 2' },
+        { value: 'Пункт 3', label: 'Пункт 3' },
+    ];
+
     return (
         <div className="App">
             <div className="button-text">Кнопки</div>
@@ -50,8 +58,8 @@ function App() {
                 Инпуты и селекты
             </div>
             <div className="input-search">
-                <div id="input-search-default">
-                    <InputSearchGipno />
+                <div id="input-search-default" >
+                    <InputSearchGipno  options={options}/>
                 </div>
             </div>
             <div className="input">

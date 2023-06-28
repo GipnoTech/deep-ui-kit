@@ -6,10 +6,7 @@ import icon from "./Gallery.svg";
 import { DatePickerProps } from 'antd';
 
 const StyledDate = styled(DatePicker)<{ name?: string }>`
-
-  .ant-picker-footer {
-    display: none;
-  }
+  
   .ant-picker-input {
     margin-left: 30px;
   }
@@ -24,8 +21,6 @@ const StyledDate = styled(DatePicker)<{ name?: string }>`
   align-items: center;
   padding: 12px 14px;
   gap: 12px;
-
-  
   
   width: 240px;
   height: 55px;
@@ -49,7 +44,7 @@ type DateGipnoProps = DatePickerProps;
 export function DateGipno( props: DateGipnoProps) {
     return (
         <StyledDate
-            {...props}
+            showToday={false}
             presets={[
                 {label: 'Позавчера', value: dayjs().add(-2, 'd') as Dayjs},
                 {label: 'Вчера', value: dayjs().add(-1, 'd') as Dayjs},
@@ -58,6 +53,7 @@ export function DateGipno( props: DateGipnoProps) {
                 {label: 'Послезавтра', value: dayjs().add(2, 'd') as Dayjs},
             ]}
             onChange={onChange}
-            placeholder="Выберите дату"/>
+            placeholder="Выберите дату"
+        />
     );
 }
