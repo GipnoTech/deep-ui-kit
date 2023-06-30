@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import dayjs, { Dayjs } from 'dayjs';
 import icon from "./Gallery.svg";
 import { DatePickerProps } from 'antd';
-import locale from "antd/lib/date-picker/locale/ru_RU";
-
+import {ruLocale} from "./customLocale";
+import moment from "moment";
 
 const StyledDate = styled(DatePicker)<{ icon?: string, icon1?: string }>`
   
@@ -36,24 +36,22 @@ const StyledDate = styled(DatePicker)<{ icon?: string, icon1?: string }>`
   border-radius: 15px;
 
   text-overflow: ellipsis;
+
+  .ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets !important;{
+    background-color: black;
+  }
 `;
 
+moment.updateLocale('ru-cstm', {
+    week: {
+        dow: 1,
+    },
+});
 
 const customFormat: DatePickerProps['format'] = (value) =>
     `${value.format('DD.MM.YYYY')}`;
 
-const onChange = (value: Dayjs | null, dateString: string) => {
-    if (value) {
-        console.log('Date: ', value);
-    } else {
-        console.log('Clear');
-    }
-};
-
-
-
 type DateTypes = typeof DatePicker['propTypes'];
-
 
 // @ts-ignore
 interface DatePickerGipnoProps extends DateTypes{
@@ -76,6 +74,7 @@ export function DateGipno({ icon, icon1, ...props }: DatePickerGipnoProps) {
     };
     return (
         <StyledDate
+            {...props}
             format={customFormat}
             icon={icon}
             icon1={icon1}
@@ -88,10 +87,9 @@ export function DateGipno({ icon, icon1, ...props }: DatePickerGipnoProps) {
                 {label: 'Послезавтра', value: dayjs().add(2, 'd') as Dayjs},
             ]}
             onChange={onChange}
-            placeholder="Выберите дату"
+            placeholder={"Выберите дату"}
             className={isDateSelected ? 'dateSelected' : ''}
-            locale={locale}
-            {...props}
+            locale={ruLocale}
         />
     );
 }
