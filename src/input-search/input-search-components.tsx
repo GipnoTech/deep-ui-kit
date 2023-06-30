@@ -4,7 +4,7 @@ import {SearchOutlined} from "@ant-design/icons"
 import styled, {css} from "styled-components";
 import icon from "./Search-Icon.svg"
 
-const StyledSpaceSearch = styled(Space)<{ name?: string}>`
+const StyledSpaceSearch = styled(Space)<{ icon?: string}>`
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -17,9 +17,8 @@ const StyledSpaceSearch = styled(Space)<{ name?: string}>`
   background: #F5F6F8;
   border-radius: 15px;
 
-  text-overflow: ellipsis;
-
-  background-image: url(${icon});
+  //background-image: url(${icon});
+  ${({ icon }) => icon && `background-image: url(${icon});`}
   background-repeat: no-repeat !important;
   background-position: 10px, 10px !important;
   
@@ -48,14 +47,15 @@ type InputSearchTypes = Parameters<typeof Space>[0]
 
 interface InputSearchGipnoProps extends InputSearchTypes {
     options: { value: string; label: string }[];
+    icon?: string;
 }
 
-export function InputSearchGipno({ options, ...props }: InputSearchGipnoProps) {
+export function InputSearchGipno({ options, icon, ...props }: InputSearchGipnoProps) {
     return (
 
-        <StyledSpaceSearch {...props}  placeholder="Введите запрос">
+        <StyledSpaceSearch {...props}  placeholder="Введите запрос" icon={icon}>
             <Input
-                style={{backgroundColor: '#F5F6F8', border: 'none'}}
+                style={{backgroundColor: '#F5F6F8', border: 'none', textOverflow: 'ellipsis'}}
                 placeholder="Введите запрос"
             />
             <svg height="50" width="5">

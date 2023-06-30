@@ -4,8 +4,10 @@ import styled, {css} from "styled-components";
 
 const { Option } = Select;
 const StyledSelect = styled(Select)<{ name?: string }>`
- 
 
+  .ant-select-arrow{
+    color: #444656 ;
+  }
   .ant-select-selector {
     background: #F5F6F8 !important;
     border-radius: 15px;

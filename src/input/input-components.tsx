@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Input} from "antd";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
-const StyledInput = styled(Input)`
+const StyledInput = styled(Input)<{ status?: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,6 +16,19 @@ const StyledInput = styled(Input)`
   border-radius: 15px;
   
   text-overflow: ellipsis;
+
+  ${(props) =>
+          props.status === 'error' &&
+          css`
+            color: #ff4d4f;
+            ::placeholder {color: #ff4d4f}
+          `}
+  ${(props) =>
+          props.status === 'warning' &&
+          css`
+            color: #faad14;
+            ::placeholder {color: #faad14}
+          `}
 `
 
 type InputTypes = Parameters<typeof Input>[0]

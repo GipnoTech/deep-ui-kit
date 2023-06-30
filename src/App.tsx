@@ -9,9 +9,14 @@ import {ColorGipno} from "./color";
 import {CheckboxGipno} from "./checkbox";
 import {SelectGipno} from "./select";
 import {DateGipno} from "./date";
-
+import icon from "./input-search/Search-Icon.svg"
+import icon1 from "./date/Gallery.svg"
+import icon2 from "./date/Vector.svg"
 
 function App() {
+    const customImage = icon
+    const customImageDate = icon1
+    const customImageDate1 = icon2
 
     const customOptions = [
         { value: 'Выберите из списка 1', label: 'Выберите из списка 1' },
@@ -59,7 +64,7 @@ function App() {
             </div>
             <div className="input-search">
                 <div id="input-search-default" >
-                    <InputSearchGipno  options={options}/>
+                    <InputSearchGipno  options={options} icon={customImage}/>
                 </div>
             </div>
             <div className="input">
@@ -72,7 +77,7 @@ function App() {
                 <SelectGipno options={customOptions} />
             </div>
             <div className="date">
-                <DateGipno/>
+                <DateGipno icon={customImageDate} icon1={customImageDate1}/>
             </div>
             <div className="color-text">Цветовая палитра</div>
             <div className="palitra">
