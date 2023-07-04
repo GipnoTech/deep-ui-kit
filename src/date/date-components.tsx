@@ -1,11 +1,13 @@
 import * as React from 'react';
-import {Button, DatePicker, Space} from 'antd';
+import {DatePicker} from 'antd';
 import styled from 'styled-components';
 import dayjs, { Dayjs } from 'dayjs';
 import icon from "./Gallery.svg";
 import { DatePickerProps } from 'antd';
-import {ruLocale} from "./customLocale";
-import moment from "moment";
+import 'dayjs/locale/ru.js'
+import locale from 'antd/es/date-picker/locale/ru_RU';
+import "antd/dist/reset.css";
+
 
 const StyledDate = styled(DatePicker)<{ icon?: string, icon1?: string }>`
   
@@ -36,17 +38,8 @@ const StyledDate = styled(DatePicker)<{ icon?: string, icon1?: string }>`
   border-radius: 15px;
 
   text-overflow: ellipsis;
-
-  .ant-picker-dropdown .ant-picker-panel-container .ant-picker-presets !important;{
-    background-color: black;
-  }
+  
 `;
-
-moment.updateLocale('ru-cstm', {
-    week: {
-        dow: 1,
-    },
-});
 
 const customFormat: DatePickerProps['format'] = (value) =>
     `${value.format('DD.MM.YYYY')}`;
@@ -72,6 +65,7 @@ export function DateGipno({ icon, icon1, ...props }: DatePickerGipnoProps) {
             setIsDateSelected(false);
         }
     };
+
     return (
         <StyledDate
             {...props}
@@ -89,7 +83,8 @@ export function DateGipno({ icon, icon1, ...props }: DatePickerGipnoProps) {
             onChange={onChange}
             placeholder={"Выберите дату"}
             className={isDateSelected ? 'dateSelected' : ''}
-            locale={ruLocale}
+            locale={locale}
+
         />
     );
 }

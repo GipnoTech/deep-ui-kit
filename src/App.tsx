@@ -74,10 +74,10 @@ function App() {
 
             </div>
             <div className="select">
-                <SelectGipno options={customOptions} />
+                <SelectGipno options={customOptions} icon={customImageDate}/>
             </div>
             <div className="date">
-                <DateGipno icon={customImageDate} icon1={customImageDate1}/>
+                <DateGipno  icon={customImageDate} icon1={customImageDate1}/>
             </div>
             <div className="color-text">Цветовая палитра</div>
             <div className="palitra">

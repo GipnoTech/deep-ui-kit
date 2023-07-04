@@ -12,7 +12,7 @@ const StyledSpaceSearch = styled(Space)<{ icon?: string}>`
    gap: 12px;
 
    width: 400px;
-   height: 30px;
+   height: 50px;
 
   background: #F5F6F8;
   border-radius: 15px;
