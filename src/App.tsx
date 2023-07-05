@@ -6,6 +6,9 @@ import {ButtonIconGipno} from "./button-icon";
 import {RadioGipno} from "./radio";
 import {InputSearchGipno} from "./input-search";
 import {ColorGipno} from "./color";
+import { SpinnerGipno } from './spinner';
+import { LoaderGipno } from './loader/loader-components';
+import icon7 from "./button-icon/svg/icon7.svg";
 import {CheckboxGipno} from "./checkbox";
 import {SelectGipno} from "./select";
 import {DateGipno} from "./date";
@@ -30,8 +33,16 @@ function App() {
     ];
 
     return (
+        
         <div className="App">
-            <div className="button-text">Кнопки</div>
+            <SpinnerGipno width={80} color="#E74646" height={8}/>
+            <LoaderGipno innerText={"percent"} labelPosition={"left"} type={"circle"} fontSize={20} value={80} width={200} height={8} colorStops = {[
+                                                            { color: '#E74646', percent: 25 },
+                                                            { color: '#F9D450', percent: 50 },
+                                                            { color: '#73C46C', percent: 75 },
+                                                            { color: '#4B51EA', percent: 100 },
+                                                        ]}/>
+            <div>Кнопки</div>
             <div className="button">
                 <div id="primary-button">
                     <ButtonGipno name={"primary"} >Primary Button</ButtonGipno>
